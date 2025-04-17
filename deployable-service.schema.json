@@ -1,0 +1,95 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/deployable-service.schema.json",
+    "title": "Deployable Service Schema",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Unique ID (automatically given)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Resource Full Name as assigned by the Provider"
+      },
+      "acronym": {
+        "type": "string",
+        "description": "Acronym of the Resource"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "The URL where the TOSCA template to deploy this service is stored"
+      },
+      "scientificDomains": {
+        "type": "array",
+        "description": "The branch of science, scientific discipline that is related to the Resource",
+        "items": {
+          "type": "string"
+        }
+      },
+      "tags": {
+        "type": "array",
+        "description": "Keywords associated to the Resource to simplify search by relevant keywords.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "description": {
+        "type": "string",
+        "description": "A high-level description in fairly non-technical terms of a) what the Resource does, functionality it provides and Resources it enables to access"
+      },
+      "tagline": {
+        "type": "string",
+        "description": "Short catch-phrase for marketing and advertising purposes. It will be usually displayed close to the Resource name and should refer to the main value or purpose of the Resource"
+      },
+      "logo": {
+        "type": "string",
+        "format": "uri",
+        "description": "Link to the logo/visual identity of the Resource. The logo will be visible at the Portal."
+      },
+      "version": {
+        "type": "string",
+        "description": "Version of the Resource"
+      },
+      "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the latest update of the Resource."
+      },
+      "license": {
+        "type": "string",
+        "description": "License of the Resource"
+      },
+      "creator": {
+        "type": "array",
+        "description": "List of creators of the Resource",
+        "items": {
+          "type": "object",
+          "properties": {
+          "name": {
+            "type": "string",
+            "description": "Ceator name: Person name in the form Surname, Name or Organization name (when the creator is an organization)"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email of the creator"
+          },
+          "organization": {
+            "type": "string",
+            "description": "Organisation and PID of the creator"
+          }
+          },
+          "required": ["name", "email", "organization"]
+        }
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "url",
+      "version"
+    ],
+    "additionalProperties": false
+  }
